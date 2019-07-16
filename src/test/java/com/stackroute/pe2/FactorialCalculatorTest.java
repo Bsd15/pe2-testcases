@@ -35,10 +35,10 @@ public class FactorialCalculatorTest {
                 1, factorialCalculator.intFactorial(1));
 
         assertEquals("givenIntNumberShouldReturnFactorial: check intFactorial()",
-                1, factorialCalculator.intFactorial(2));
+                2, factorialCalculator.intFactorial(2));
 
         assertEquals("givenIntNumberShouldReturnFactorial: check intFactorial()",
-                1, factorialCalculator.intFactorial(12));
+                479001600, factorialCalculator.intFactorial(12));
     }
 
     /**
@@ -49,17 +49,17 @@ public class FactorialCalculatorTest {
     @Test
     public void givenIntNumberShouldReturnNegativeOne() {
         assertEquals("givenIntNumberShouldReturnNegativeOne: check intFactorial(), Should have returned -1",
-                -1, factorialCalculator.intFactorial(13));
+                -1, factorialCalculator.intFactorial(20));
     }
 
     /**
-     * Test for intFactorial() to check if the method returns null when
+     * Test for intFactorial() to check if the method returns -1 when
      * null is given as input.
      */
     @Test
-    public void givenNullShouldReturnNegativeOne() {
-        assertNull("givenNullShouldReturnNegativeOne: check intFactorial(). Method should return null.",
-                factorialCalculator.intFactorial(null));
+    public void givenNullToIntFactorialShouldReturnNegativeOne() {
+        assertEquals("givenNullShouldReturnNegativeOne: check intFactorial(). Method should return null.",
+                -1, factorialCalculator.intFactorial(null));
     }
 
     /**
@@ -71,16 +71,16 @@ public class FactorialCalculatorTest {
     @Test
     public void givenLongNumberShouldReturnFactorial() {
         assertEquals("givenLongNumberShouldReturnFactorial: Check longFactorial()",
-                1, factorialCalculator.longFactorial(1));
+                1, factorialCalculator.longFactorial((long) 1));
 
         assertEquals("givenLongNumberShouldReturnFactorial: Check longFactorial()",
-                1, factorialCalculator.longFactorial(2));
+                2, factorialCalculator.longFactorial((long) 2));
 
         assertEquals("givenLongNumberShouldReturnFactorial: Check longFactorial()",
-                1, factorialCalculator.longFactorial(13));
+                6227020800L, factorialCalculator.longFactorial((long) 13));
 
         assertEquals("givenLongNumberShouldReturnFactorial: Check longFactorial()",
-                1, factorialCalculator.longFactorial(20));
+                2432902008176640000L, factorialCalculator.longFactorial((long) 20));
     }
 
     /**
@@ -88,9 +88,9 @@ public class FactorialCalculatorTest {
      * the factorial of the given number crosses the limit.
      */
     @Test
-    public void  givenLongNumberShouldReturnNegativeOne() {
+    public void givenLongNumberShouldReturnNegativeOne() {
         assertEquals("testLongFactorialFailureGivenNumberShouldReturnNegativeOne: Check longFactorial(), Should return -1",
-                -1, factorialCalculator.longFactorial(21));
+                -1, factorialCalculator.longFactorial((long) 21));
     }
 
     /**
@@ -99,7 +99,7 @@ public class FactorialCalculatorTest {
      */
     @Test
     public void givenNullShouldReturnNegativeOne() {
-        assertNull("givenNullShouldReturnNegativeOne: check longFactorial(). Method should return null.",
-                factorialCalculator.longFactorial(null));
+        assertEquals("givenNullShouldReturnNegativeOne: check longFactorial(). Method should return null.",
+                -1, factorialCalculator.longFactorial(null));
     }
 }
